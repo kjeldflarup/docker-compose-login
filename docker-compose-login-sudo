@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+user=$1
+shift
+
+if [ ! -f docker-compose.yml ] ; then
+  cp -p docker-compose.yml.sample docker-compose.yml
+fi
+
+if [ "`grep $user: docker-compose.yml`" = "" ] ; then
+  # Reset to "user"
+  user=user
+fi
+
+exec docker-compose run $user /bin/sh $*

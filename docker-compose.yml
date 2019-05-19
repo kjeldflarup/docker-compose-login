@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  user:
+    image: alpine
+    volumes:
+        - /tmp:/tmp
+    working_dir: /tmp
+    command: /bin/sh
+
+  sslforfree:
+    image: alpine
+    volumes:
+        - /home/sslforfree:/home/sslforfree
+    working_dir: /home/sslforfree
+    command: /bin/sh
+
